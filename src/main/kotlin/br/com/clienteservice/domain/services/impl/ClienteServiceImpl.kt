@@ -5,14 +5,13 @@ import br.com.clienteservice.domain.entities.Cliente
 import br.com.clienteservice.domain.entities.toModel
 import br.com.clienteservice.domain.services.ClienteService
 import br.com.clienteservice.resources.repository.ClienteRepository
-import org.springframework.context.annotation.Lazy
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
-import java.util.UUID
+import java.util.*
 
 @Service
-class ClienteServiceImpl(@Lazy private val clienteRepository: ClienteRepository) : UserDetailsService, ClienteService {
+class ClienteServiceImpl(private val clienteRepository: ClienteRepository) : UserDetailsService, ClienteService {
 
     override fun cadastrar(cliente: Cliente): Cliente {
         return clienteRepository.save(cliente)
@@ -47,6 +46,10 @@ class ClienteServiceImpl(@Lazy private val clienteRepository: ClienteRepository)
 
     override fun informacoes(id: UUID): String {
         return "Cliente: ${listarPorId(id).nome}"
+    }
+
+    override fun findByEmail(username: String?): Cliente? {
+        return clienteRepository.findByEmail(username)
     }
 
     override fun loadUserByUsername(username: String?): UserDetails {

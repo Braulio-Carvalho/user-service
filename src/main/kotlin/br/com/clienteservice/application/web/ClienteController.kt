@@ -18,7 +18,7 @@ import java.util.UUID
 
 @RestController
 @RequestMapping("/clientes")
-class ClienteController(private val clienteService: ClienteService) {
+class ClienteController( private val clienteService: ClienteService) {
     //criar um novo usuario
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)

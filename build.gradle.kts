@@ -20,6 +20,7 @@ dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.1.4")
 	implementation("org.springframework.boot:spring-boot-starter-security:2.7.4")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("io.jsonwebtoken:jjwt:0.9.1")
 	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.1.4")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
